@@ -4,7 +4,6 @@ void setStripPower(bool power)
 {
     stripPower = power;
 
-    // Выключаем ленту - устанавливаем все светодиоды в черный цвет
     if (!stripPower)
     {
         FastLED.clear();
@@ -34,12 +33,49 @@ void updateStrip()
 {
     if (stripPower)
     {
-        for (int i = 0; i < NUM_LEDS; i++)
+        switch (mode)
         {
-            leds[i] = CHSV(hue + (i * 255 / NUM_LEDS), 255, 255);
+        case stripMode::RAINBOW:
+            for (int i = 0; i < NUM_LEDS; i++)
+            {
+                leds[i] = CHSV(hue + (i * 255 / NUM_LEDS), 255, 255);
+            }
+            break;
+
+        case stripMode::CAMPFIRE:
+            for (int i = 0; i < NUM_LEDS; i++)
+            {
+                leds[i] = CHSV(hue + (i * 255 / NUM_LEDS), 255, 255);
+            }
+            break;
+
+        case stripMode::RED:
+            break;
+
+        case stripMode::GREEN:
+            break;
+
+        case stripMode::BLUE:
+            break;
+
+        default:
+            break;
         }
+
         FastLED.show();
+
+        // if (mode == stripMode::RAINBOW)
+        // {
+        // }
+        // else if (mode == stripMode::CAMPFIRE)
+        // {
+        //     // КОСТЕР
+        // }
+        // else if (mode == stripMode::RED)
+        // {
+        // }
     }
+    hue++;
 }
 
 // ===============================================

@@ -44,6 +44,16 @@ uint8_t hue = 0;
 bool stripPower = true;       // Состояние ленты (вкл/выкл)
 uint8_t stripBrightness = 50; // Яркость ленты (0-255)
 
+enum class stripMode
+{
+    RAINBOW,
+    CAMPFIRE,
+    RED,
+    GREEN,
+    BLUE,
+};
+stripMode mode;
+
 // ===============================================
 // Прототипы функций
 
@@ -143,6 +153,7 @@ void setup()
 
     FastLED.addLeds<LED_TYPE, DATA_PIN, COLOR_ORDER>(leds, NUM_LEDS);
     FastLED.setBrightness(stripBrightness);
+    mode = stripMode::RAINBOW;
 
     connectSuccess();
 
@@ -158,7 +169,6 @@ void loop()
     client.loop();
 
     updateStrip();
-    hue++;
 
     static uint64_t led_timer;
     if (millis() - 500 >= led_timer)

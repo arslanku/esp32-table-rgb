@@ -13,6 +13,7 @@ void MQTT_connect()
 
         if (client.connect(client_id.c_str(), MQTT_USER, MQTT_PASSWORD))
         {
+            // Подписываемся на топики
             Serial.println("[MQTT] Подключено к MQTT");
             client.subscribe(STRIP_POWER_TOPIC);
             client.subscribe(STRIP_BRIGHTNESS_TOPIC);
