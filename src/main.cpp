@@ -21,6 +21,8 @@
 #define MQTT_USER "itman7144"
 #define MQTT_PASSWORD "Parol2007dg7144"
 
+#define RESTART_OTA_TOPIC "STRIP-1-OTA"
+
 #define STRIP_POWER_TOPIC "STRIP-power"
 #define STRIP_BRIGHTNESS_TOPIC "STRIP-brightness"
 
@@ -63,11 +65,17 @@ void MQTT_callback(char *topic, byte *payload, unsigned int length);
 void setStripPower(bool power);
 void setStripBrightness(uint8_t brightness);
 void updateStrip();
+void OTA_setup();      // Добавляем
+void OTA_handle();     // Добавляем
 
 // ===============================================
 
 #include "WIFI_connect.h"
 #include "MQTT_connect.h"
+
+// ===============================================
+
+#include "OTA_connect.h"
 
 // ===============================================
 
@@ -92,6 +100,7 @@ void setup()
 
     WIFI_connect();
     MQTT_connect();
+    OTA_setup();
 
 #ifdef LED_BUILTIN
     digitalWrite(LED_BUILTIN, HIGH);
@@ -113,6 +122,8 @@ void loop()
     if (!client.connected())
         MQTT_connect();
     client.loop();
+    
+    OTA_handle();
 
     updateStrip();
 

@@ -54,4 +54,12 @@ void MQTT_callback(char *topic, byte *payload, unsigned int length)
             Serial.printf("[STRIP] Яркость установлена: %d%%\n", brightnessPercent);
         }
     }
+    else if (String(topic) == RESTART_OTA_TOPIC)
+    {
+        if (message == "1")
+        {
+            Serial.println("[OTA] Перезагрузка по команде");
+            ESP.restart();
+        }
+    }
 }
