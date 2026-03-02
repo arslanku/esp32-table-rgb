@@ -22,11 +22,11 @@ void OTA_setup()
     ArduinoOTA.onError([](ota_error_t error)
                        {
         Serial.printf("[OTA] Ошибка[%u]: ", error);
-        if (error == OTA_AUTH_ERROR) Serial.println("Ошибка аутентификации");
-        else if (error == OTA_BEGIN_ERROR) Serial.println("Ошибка начала обновления");
-        else if (error == OTA_CONNECT_ERROR) Serial.println("Ошибка подключения");
-        else if (error == OTA_RECEIVE_ERROR) Serial.println("Ошибка получения");
-        else if (error == OTA_END_ERROR) Serial.println("Ошибка завершения"); });
+        if (error == OTA_AUTH_ERROR) Serial.println("Ошибка аутентификации OTA_AUTH_ERROR");
+        else if (error == OTA_BEGIN_ERROR) Serial.println("Ошибка начала обновления OTA_BEGIN_ERROR");
+        else if (error == OTA_CONNECT_ERROR) Serial.println("Ошибка подключения OTA_CONNECT_ERROR");
+        else if (error == OTA_RECEIVE_ERROR) Serial.println("Ошибка получения OTA_RECEIVE_ERROR");
+        else if (error == OTA_END_ERROR) Serial.println("Ошибка завершения OTA_END_ERROR"); });
 
     ArduinoOTA.begin();
     Serial.println("[OTA] Сервис готов к обновлениям");

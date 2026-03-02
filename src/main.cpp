@@ -65,8 +65,8 @@ void MQTT_callback(char *topic, byte *payload, unsigned int length);
 void setStripPower(bool power);
 void setStripBrightness(uint8_t brightness);
 void updateStrip();
-void OTA_setup();      // Добавляем
-void OTA_handle();     // Добавляем
+void OTA_setup();
+void OTA_handle();
 
 // ===============================================
 
@@ -108,9 +108,10 @@ void setup()
 
     FastLED.addLeds<LED_TYPE, DATA_PIN, COLOR_ORDER>(leds, NUM_LEDS);
     FastLED.setBrightness(stripBrightness);
-    mode = stripMode::RAINBOW;
 
     connectSuccess();
+
+    mode = stripMode::RAINBOW;
 
     Serial.println("[SYSTEM] Система запущена");
 }
@@ -122,7 +123,7 @@ void loop()
     if (!client.connected())
         MQTT_connect();
     client.loop();
-    
+
     OTA_handle();
 
     updateStrip();
