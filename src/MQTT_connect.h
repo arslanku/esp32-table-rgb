@@ -17,8 +17,9 @@ void MQTT_connect()
             Serial.println("[MQTT] Подключено к MQTT");
             client.subscribe(STRIP_POWER_TOPIC);
             client.subscribe(STRIP_BRIGHTNESS_TOPIC);
+            client.subscribe(STRIP_MODE_TOPIC);
+            client.subscribe(RESTART_OTA_TOPIC);
 
-            // Публикуем текущее состояние при подключении
             // client.publish(STRIP_POWER_TOPIC_TO_PUBLISH, stripPower ? "1" : "0");
             // client.publish(STRIP_BRIGHTNESS_TOPIC_TO_PUBLISH, String(stripBrightness * 100 / 255).c_str());
         }
