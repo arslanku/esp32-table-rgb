@@ -1,0 +1,95 @@
+
+        // // КРАСНЫЙ
+        // case stripMode::RED:
+        // {
+        //     // uint8_t bright = pulsatingBrightness(5, 200, 255); // скорость 5, яркость 200-255
+        //     // uint8_t hueShift = sin8(millis() / 7) / 4;         // изменение оттенка 0..63
+        //     // fill_solid(leds, NUM_LEDS, CHSV(0 + hueShift, 255, bright));
+        //     if (millis() - timer >= 50)
+        //     {
+        //         timer = millis();
+        //         hue++;
+        //     }
+        //     for (int i = 0; i < NUM_LEDS; i++)
+        //     {
+        //         float hue_float = 35 + sin(hue) * 5; // 20 - 35 - 50
+        //         leds[i] = CHSV((int)hue_float + (i * 255 / NUM_LEDS), 255, 255);
+        //     }
+        //     break;
+        // }
+
+        // // ЗЕЛЕНЫЙ
+        // case stripMode::GREEN:
+        // {
+        //     // uint8_t bright = pulsatingBrightness(5, 200, 255);
+        //     // uint8_t hueShift = sin8(millis() / 7) / 6; // изменение оттенка 0..42
+        //     // fill_solid(leds, NUM_LEDS, CHSV(96 + hueShift, 255, bright));
+        //     if (millis() - timer >= 50)
+        //     {
+        //         timer = millis();
+        //         hue++;
+        //     }
+        //     for (int i = 0; i < NUM_LEDS; i++)
+        //     {
+        //         float hue_float = 150 + sin(hue) * 5; // 135 - 150 - 165
+        //         leds[i] = CHSV((int)hue_float + (i * 255 / NUM_LEDS), 255, 255);
+        //     }
+        //     break;
+        // }
+
+        // // СИНИЙ
+        // case stripMode::BLUE:
+        // {
+        //     // uint8_t bright = pulsatingBrightness(5, 200, 255);
+        //     // uint8_t hueShift = sin8(millis() / 7) / 6; // изменение оттенка 0..42
+        //     // fill_solid(leds, NUM_LEDS, CHSV(160 + hueShift, 255, bright));
+        //     if (millis() - timer >= 50)
+        //     {
+        //         timer = millis();
+        //         hue++;
+        //     }
+        //     for (int i = 0; i < NUM_LEDS; i++)
+        //     {
+        //         float hue_float = 260 + sin(hue) * 5; // 245 - 260 - 275
+        //         leds[i] = CHSV((int)hue_float + (i * 255 / NUM_LEDS), 255, 255);
+        //     }
+        //     break;
+        // }
+
+        // case stripMode::DISCO:
+        //     if (millis() - timer >= 450)
+        //     {
+        //         timer = millis();
+        //         uint8_t color = random(255);
+        //         for (int sector = 0; sector < NUM_LEDS / 5; sector++)
+        //         {
+        //             if (sector % 2 == 0)
+        //             {
+        //                 for (int i = sector *)
+        //             }
+        //         }
+        //         for (int led = 0; led < NUM_LEDS; led++)
+        //         {
+        //             if (led % 20 == 0)
+        //             {
+        //                 color = random(255) - color / 2;
+        //             }
+        //             if ((led % 20) % 2 == 0)
+        //             {
+        //                 leds[led] = CHSV(color, 255, 255);
+        //             }
+        //         }
+        //     }
+        // int sector = NUM_LEDS / 5;
+        // if (millis() - timer > 450)
+        // {
+        //     timer = millis();
+        //     for (int part = 0; part < 5; part++)
+        //     {
+        //         for (int i = 0; i < (part + 1) * sector; i++)
+        //         {
+        //             leds[i] = CHSV(random(255), 255, 255);
+        //         }
+        //     }
+        // }
+        // break;
