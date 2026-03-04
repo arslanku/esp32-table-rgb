@@ -18,10 +18,8 @@ void MQTT_connect()
             client.subscribe(STRIP_POWER_TOPIC);
             client.subscribe(STRIP_BRIGHTNESS_TOPIC);
             client.subscribe(STRIP_MODE_TOPIC);
+            client.subscribe(STRIP_SPEED);
             client.subscribe(RESTART_OTA_TOPIC);
-
-            // client.publish(STRIP_POWER_TOPIC_TO_PUBLISH, stripPower ? "1" : "0");
-            // client.publish(STRIP_BRIGHTNESS_TOPIC_TO_PUBLISH, String(stripBrightness * 100 / 255).c_str());
         }
         else
         {

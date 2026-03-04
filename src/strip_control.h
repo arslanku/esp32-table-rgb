@@ -37,13 +37,12 @@ uint8_t pulsatingBrightness(uint16_t speed = 5, uint8_t minBright = 180, uint8_t
 // Функция обновления состояния ленты
 void updateStrip()
 {
+    static uint64_t timer = 0;
+    
     if (!stripPower)
     {
         return;
     }
-
-    static uint64_t timer = 0;
-
     switch (mode)
     {
     // Эффект РАДУГИ
@@ -146,13 +145,12 @@ void updateStrip()
     // Продвинутая дискотека с автоматической сменой эффектов
     case stripMode::DISCO:
     {
-
-        static int discoEffect = 0;
+        static uint16_t discoEffect = 0;
         static uint8_t discoHue = 0;
         static uint8_t offset = 0;
 
         static uint64_t effectChange_timer = 0;
-        if (millis() - effectChange_timer > 5000)
+        if (millis() - effectChange_timer > discoTimerMs)
         {
             effectChange_timer = millis();
             discoEffect = (discoEffect + 1) % 3;

@@ -1,51 +1,23 @@
 #include <Arduino.h>
 
-#include <WiFi.h>
-#include <PubSubClient.h>
-#include <FastLED.h>
+#define CONTROLLER_TYPE_ESP32_TABLE 1
+#define CONTROLLER_TYPE_ESP8266_TABLE 0
+#define CONTROLLER_TYPE_ESP8266_WINDOW 0
+
+#include "settings.h"
 
 // ===============================================
-// Настройки
-
-#define LED_BUILTIN 2
-#define LOGGING 1
-// #define DELAY_TIME_MS 30
-
-// ===============================================
-// Настройки WiFi и MQTT
-
-#define WIFI_SSID "CHAIHANA_HOUSE"
-#define WIFI_PASSWORD "987123654"
-#define MQTT_SERVER "mqtt.dealgate.ru"
-#define MQTT_PORT 1883
-#define MQTT_USER "itman7144"
-#define MQTT_PASSWORD "Parol2007dg7144"
-#define MQTT_CLIENT_NAME "ESP32-client-" // + ...
-
-#define TOPIC_TO_PUBLISH "STRIP-table-1-recieved"
-
-#define STRIP_POWER_TOPIC "STRIP-table-power"
-#define STRIP_BRIGHTNESS_TOPIC "STRIP-table-brightness"
-#define STRIP_MODE_TOPIC "STRIP-table-mode"
-
-#define RESTART_OTA_TOPIC "STRIP-table-1-OTA"
 
 WiFiClient espClient;
 PubSubClient client(espClient);
 
-// ===============================================
-// Настройки FastLED
-
-#define NUM_LEDS 120
-#define DATA_PIN 5
-#define LED_TYPE WS2812
-#define COLOR_ORDER GRB
-
 CRGB leds[NUM_LEDS];
 uint8_t hue = 0;
 
-bool stripPower = true;       // Состояние ленты (вкл/выкл)
-uint8_t stripBrightness = 50; // Яркость ленты (0-255)
+bool stripPower = true;
+uint8_t stripBrightness = 50;
+
+uint16_t discoTimerMs = 5000;
 
 enum class stripMode
 {

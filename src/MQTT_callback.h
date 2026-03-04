@@ -74,7 +74,22 @@ void MQTT_callback(char *topic, byte *payload, unsigned int length)
         else if (message == "DISCO")
         {
             mode = stripMode::DISCO;
-            client.publish("STRIP-window-mode", "DISCO");
+        }
+    }
+
+    else if (String(topic) == STRIP_SPEED)
+    {
+        if (message == "low")
+        {
+            discoTimerMs = 10000;
+        }
+        else if (message == "medium")
+        {
+            discoTimerMs = 5000;
+        }
+        else if (message == "high")
+        {
+            discoTimerMs = 1000;
         }
     }
 
