@@ -9,6 +9,7 @@ void MQTT_callback(char *topic, byte *payload, unsigned int length)
     String message = "";
     for (int i = 0; i < length; i++)
         message += (char)payload[i];
+    message.trim();
     Serial.println(message);
 
     if (String(topic) == STRIP_POWER_TOPIC)

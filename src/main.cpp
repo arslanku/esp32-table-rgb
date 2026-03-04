@@ -16,7 +16,6 @@ uint8_t hue = 0;
 
 bool stripPower = true;
 uint8_t stripBrightness = 50;
-
 uint16_t discoTimerMs = 5000;
 
 enum class stripMode
@@ -86,6 +85,7 @@ void setup()
     connectSuccess();
 
     mode = stripMode::RAINBOW;
+    // mode = stripMode::DISCO;
 
     Serial.println("[SYSTEM] Система запущена");
 }
@@ -109,6 +109,4 @@ void loop()
         led_timer = millis();
         digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
     }
-
-    // delay(DELAY_TIME_MS);
 }
