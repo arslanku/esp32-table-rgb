@@ -113,7 +113,7 @@ void loop()
     updateStrip();
 
     static uint64_t led_timer;
-    if (millis() - 500 >= led_timer)
+    if (millis() - led_timer >= 500)
     {
         led_timer = millis();
         digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));

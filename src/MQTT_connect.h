@@ -19,7 +19,7 @@ void MQTT_connect()
             client.subscribe(STRIP_BRIGHTNESS_TOPIC);
             client.subscribe(STRIP_MODE_TOPIC);
             client.subscribe(STRIP_SPEED);
-            client.subscribe(RESTART_OTA_TOPIC);
+            client.subscribe(RESTART_TOPIC);
         }
         else
         {

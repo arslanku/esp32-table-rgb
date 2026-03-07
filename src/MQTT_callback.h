@@ -94,7 +94,7 @@ void MQTT_callback(char *topic, byte *payload, unsigned int length)
         }
     }
 
-    else if (String(topic) == RESTART_OTA_TOPIC)
+    else if (String(topic) == RESTART_TOPIC)
     {
         if (message == "1")
         {

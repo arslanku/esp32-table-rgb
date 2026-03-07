@@ -43,6 +43,7 @@ void updateStrip()
     {
     // Эффект РАДУГИ
     case stripMode::RAINBOW:
+    {
         static uint64_t rainbowTimer = 0;
         if (millis() - rainbowTimer >= 30)
         {
@@ -54,9 +55,11 @@ void updateStrip()
             leds[i] = CHSV(hue + (i * 255 / NUM_LEDS), 255, 255);
         }
         break;
+    }
 
     // Эффект КОСТРА
     case stripMode::CAMPFIRE:
+    {
         for (int i = 0; i < NUM_LEDS; i++)
         {
             uint8_t baseHue = 16 + (i * 3) % 32;
@@ -66,24 +69,32 @@ void updateStrip()
             leds[i] = CHSV(finalHue, 255, bright);
         }
         break;
+    }
 
     // КРАСНЫЙ
     case stripMode::RED:
+    {
         fill_solid(leds, NUM_LEDS, CRGB::Red);
         break;
+    }
 
     // ЗЕЛЕНЫЙ
     case stripMode::GREEN:
+    {
         fill_solid(leds, NUM_LEDS, CRGB::Green);
         break;
+    }
 
     // СИНИЙ
     case stripMode::BLUE:
+    {
         fill_solid(leds, NUM_LEDS, CRGB::Blue);
         break;
+    }
 
     // Продвинутая дискотека с автоматической сменой эффектов
     case stripMode::DISCO:
+    {
         static uint8_t discoEffect = 0;
         static uint8_t discoHue = 0;
         static uint8_t offset = 0;
@@ -168,6 +179,7 @@ void updateStrip()
             break;
         }
         break;
+    }
     }
     FastLED.show();
 }
