@@ -1,3 +1,4 @@
 .pio
 .vscode
+.DS_store
 auth_data.h
